@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Container, Paper, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import '../css/BloodPressureHistory.css'; // Importa la hoja de estilos
 
 function BloodPressureHistory() {
   const [readings, setReadings] = useState([]);
@@ -26,44 +26,42 @@ function BloodPressureHistory() {
   const formatDate = (timestamp) => {
     const date = new Date(timestamp);
     return {
-      date: date.toLocaleDateString(), // Ejemplo: "08/06/2024"
-      time: date.toLocaleTimeString(), // Ejemplo: "10:45:00 AM"
+      date: date.toLocaleDateString(),
+      time: date.toLocaleTimeString(),
     };
   };
 
   return (
-    <Container>
-      <Typography variant="h6" sx={{ mb: 2 }}>
-        Historial de Presión Arterial
-      </Typography>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Fecha</TableCell>
-              <TableCell>Hora</TableCell>
-              <TableCell>Sistólica</TableCell>
-              <TableCell>Diastólica</TableCell>
-              <TableCell>Pulso</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
+    <div className="container-table">
+      <h2 className='fjalla-one-regular'>Historial de Presión Arterial</h2>
+      <div className="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Sistólica</th>
+              <th>Diastólica</th>
+              <th>Pulso</th>
+            </tr>
+          </thead>
+          <tbody>
             {readings.map((reading) => {
               const { date, time } = formatDate(reading.timestamp);
               return (
-                <TableRow key={reading.id}>
-                  <TableCell>{date}</TableCell>
-                  <TableCell>{time}</TableCell>
-                  <TableCell>{reading.systolic}</TableCell>
-                  <TableCell>{reading.diastolic}</TableCell>
-                  <TableCell>{reading.pulse}</TableCell>
-                </TableRow>
+                <tr key={reading.id}>
+                  <td>{date}</td>
+                  <td>{time}</td>
+                  <td>{reading.systolic}</td>
+                  <td>{reading.diastolic}</td>
+                  <td>{reading.pulse}</td>
+                </tr>
               );
             })}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </Container>
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 }
 

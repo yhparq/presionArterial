@@ -1,95 +1,79 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { Container, TextField, Button, Typography, Paper, Box } from '@mui/material';
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import "../css/index.css"; // Asegúrate de importar el archivo CSS
 
 function Register() {
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const user = { username, email, password };
-        try {
-            const response = await axios.post('http://localhost:8000/api/users/register/', user);
-            console.log(response.data);
-            navigate('/'); // Redirigir al login después del registro
-        } catch (error) {
-            console.error(error);
-        }
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const user = { username, email, password };
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/users/register/",
+        user
+      );
+      console.log(response.data);
+      navigate("/"); // Redirigir al login después del registro
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-    return (
-        <Container
-            component="main"
-            sx={{
-                height: '100vh',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                backgroundImage: 'url(/assets/imgs/bg2.jpeg)', // Cambia la ruta según tu archivo de fondo
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-            }}
-        >
-            <Paper elevation={3} sx={{ padding: 4, width: '100%', maxWidth: 400, backgroundColor: 'rgba(255, 255, 255, 0.95)' }}>
-                <Typography variant="h5" align="center">Registrarse</Typography>
-                <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        label="Nombre de usuario"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        autoComplete="username"
-                        autoFocus
-                    />
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        label="Correo electrónico"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        autoComplete="email"
-                    />
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        label="Contraseña"
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        autoComplete="new-password"
-                    />
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        sx={{ mt: 3, mb: 2 }}
-                    >
-                        Registrarse
-                    </Button>
-                    <Button
-                        fullWidth
-                        variant="outlined"
-                        color="primary"
-                        onClick={() => navigate('/')}
-                    >
-                        ¿Ya tienes una cuenta? Iniciar Sesión
-                    </Button>
-                </Box>
-            </Paper>
-        </Container>
-    );
+  return (
+    <div className="container">
+      <div className="form-container">
+        <h2 className="jersey-10-regular title-form-login">SunquMedic</h2>
+        <form className="form-content" onSubmit={handleSubmit}>
+          <h5>Registrarse</h5>
+          <div className="input-container">
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              placeholder="Nombre de usuario"
+            />
+          </div>
+          <div className="input-container">
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              placeholder="Correo electrónico"
+            />
+          </div>
+          <div className="input-container">
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              placeholder="Contraseña"
+            />
+          </div>
+          <button type="submit" className="prima-btn">
+            Registrarse
+          </button>
+          <button
+            type="button"
+            className="outlined secon-btn"
+            onClick={() => navigate("/login")}
+          >
+            ¿Ya tienes una cuenta? Iniciar Sesión
+          </button>
+        </form>
+      </div>
+    </div>
+  );
 }
 
 export default Register;

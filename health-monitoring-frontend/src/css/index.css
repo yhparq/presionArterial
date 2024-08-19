@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Jersey+10&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.jersey-10-regular {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* .container{
+    height: 100vh;
+    width: 100%;
+    background-color: #0d090a;
+    display: flex;
+    flex-direction: column;
+    padding:  0 4rem;
+} */
+.container {
+    height: 100vh;
+    width: 100%;
+    background-color: #0d090a; /* Color de fondo principal */
+    display: flex;
+    flex-direction: column;
+    padding: 0 4rem;
+    position: relative;
+    overflow: hidden;
+    background-image: 
+        linear-gradient(45deg, #130d0e 25%, transparent 25%, transparent 75%, #130d0e 75%, #130d0e),
+        linear-gradient(45deg, #130d0e 25%, transparent 25%, transparent 75%, #130d0e 75%, #130d0e);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+}
+
+
+
+.header{
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #eaf2ef;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    border: 0.5px dashed #d8dddb;
+    border-radius: 4rem;
+    padding: .85rem 5rem;
+}
+.nav-link{
+    text-decoration: none;
+    /* color: #d8dddb; */
+    color: #912f56;
+    font-weight: 500;
+}
+
+.nav-link:hover{
+    color: #bbb;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main h2{
+    font-size: 7rem;
+    text-transform: uppercase;
+}
+
+.main :nth-child(1), :nth-child(3){
+    color: #d8dddb;
+}
+
+.main :nth-child(2){
+    color: #912f56;
+}
+
+.footer{
+    position: sticky;
+    display: flex; 
+    justify-content: space-between;
+    padding: 2rem 7rem;
+}
+
+.footer p{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #d8dddb;
+}
+
+.btn-started{
+    border: 1px solid #912f56;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    background-color: #912f56;
+}
+
+.btn-nav-link{
+    color: #0d090a;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.btn-started:hover{
+    border: 1px solid #d8dddb;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    background-color: #d8dddb;
+}
+.btn-nav-link:hover{
+    color: #912f56;
+}
+
+
+
+.form-container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.form-container form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d8dddb;
+    border-radius: 20px;
+    width: 25rem;
+    height: 30rem;
+    /* background-color: #d8dddb; */
+    background-color: rgba(216, 221, 219, .8);
+}
+
+.form-content h5{
+    color: #0d090a;
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+
+.form-content input{
+    width: 19.2rem;
+    margin: .5rem 0;
+    padding: 1rem .5rem;
+    font-size: 1rem;
+    outline: none;             /* Elimina el contorno predeterminado en foco */
+}
+
+.form-content button{
+    margin: .5rem 0;
+}
+
+.prima-btn{
+    width: 19.2rem;
+    border: 1px solid #912f56;
+    padding: 1rem 6.5rem ;
+    background-color: #912f56;
+    color: #d8dddb;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.prima-btn:hover{
+    border: 1px solid #912f56;
+    padding: 1rem 6.5rem ;
+    background-color: #681637;
+    color: #d8dddb;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.secon-btn{
+    border: 1px solid #912f56;
+    width: 19.2rem;
+    padding: 1rem ;
+    background-color: #d8dddb;
+    color: #912f56;
+    font-size: 1rem;
+}
+.secon-btn:hover{
+    border: 1px solid #912f56;
+    width: 19.2rem;
+    padding: 1rem ;
+    background-color: #bbbdbc;
+    color: #912f56;
+    font-size: 1rem;
+}
+
+.title-form-login{
+    color: #912f56;
+    font-size: 6rem;
+    padding: 1rem 0;
+    text-transform: uppercase;
+}
